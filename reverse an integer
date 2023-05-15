@@ -1,0 +1,15 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+
+    int number;
+    cout<<"enter the number"<<endl;
+    cin>>number;
+    string s = to_string(number);
+    string t = s;
+    reverse(t.begin(), t.end());
+
+    int newNum= stoi(t);
+    cout<<"reversed number is: "<<newNum<<endl;    
+return 0;
+}
