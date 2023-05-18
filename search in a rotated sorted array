@@ -1,0 +1,74 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int binarySearch(int arr[], int s, int e, int target) {
+    int start = s;
+    int end = e;
+    int mid = start + (end-start)/2;
+
+    while(start<=end) {
+        if(arr[mid] == target) {
+            return mid;
+        }
+
+        else if(arr[mid] < target) {
+            start = mid+1;
+        }
+
+        else {
+            end = mid-1;
+        }
+
+        mid = start + (end - start)/2;
+    }
+
+    return -1;
+}
+
+int getPivot(int arr[], int size){
+    int start = 0;
+    int end = size-1;
+    int mid  = start + (end-start)/2;
+
+    while(start<end) {
+        if(arr[mid]>=arr[0]) {
+            start = mid+1;
+        }
+        else {
+            end = mid;
+        }
+
+        mid = start + (end-start)/2;
+    }
+
+    return start;
+}
+
+int search(int arr[], int target) {
+    int pivot = getPivot(arr, 7);
+
+    int start = 0;
+    int end = 7-1;
+    int mid = start + (end-start)/2;
+
+        if(arr[pivot]<= target && arr[end]>=target) {
+            return binarySearch(arr, pivot,end, target);
+        }
+
+        else {
+            return binarySearch(arr, 0, (pivot-1), target);
+        }
+
+    return start;
+}
+
+int main(){
+
+    int arr[7] = {4,5,6,7,0,1,2};
+    int target  = 5;
+    int size = 7;
+
+    cout<<"the element is at index "<<search(arr, 0);
+
+return 0;
+}
