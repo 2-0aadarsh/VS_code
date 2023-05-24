@@ -1,0 +1,51 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int largest(int arr[], int size) {
+    int largest = INT_MIN;
+    for (int i = 0; i < size; i++)
+    {
+        if(arr[i]>largest) {
+            largest = arr[i];
+        }
+    }
+    return largest;
+}
+
+int secondLargest(int arr[], int size){
+    int larger = largest(arr,size);
+    int secondLarger = INT_MIN;
+    for (int i = 0; i < size; i++)
+    {
+        if(arr[i]>secondLarger && arr[i]<larger) {
+            secondLarger = arr[i];
+        }
+    }
+    return secondLarger;
+}
+
+void secondLargestII(int arr[], int size) {
+    int largest = INT_MIN;
+    int secLargest = INT_MIN;
+
+    for (int i = 0; i < size; i++)
+    {
+        if(arr[i]>largest) {
+            secLargest = largest;
+            largest = arr[i];
+        }
+        else if(arr[i]<largest && arr[i]>secLargest) {
+            secLargest = arr[i];
+        }
+    }
+    
+    cout<<largest <<" "<<secLargest;
+}
+
+
+int main(){
+    int arr[9] = {2,4,1,6,5,8,10,12,11};
+
+    secondLargestII(arr,9);
+return 0;
+}
