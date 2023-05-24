@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+bool ifSorted(int arr[], int size){
+    int j = 1;
+    for (int i = 0; i < size; i++)
+    {
+        if(arr[j++]>=arr[i]){  
+        }
+        else {
+            return false;
+        }
+    }
+    return true;
+}
+
+
+int main(){
+
+    int arr[6] = {1,2,2,3,4,4};
+    int ans = ifSorted(arr,6);
+    if(ans != 0) {
+        cout<<"true"<<endl;
+    }
+    else {
+        cout<<"false"<<endl;
+    }
+return 0;
+}
